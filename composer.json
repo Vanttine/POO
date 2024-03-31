@@ -1,0 +1,17 @@
+{
+    "name": "vantine/curso-poo-php",
+    "description": "Curso de POO em PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vantine\\CursoPooPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luiz",
+            "email": "fellipevantine12@gmail.com"
+        }
+    ],
+    "require": {}
+}
