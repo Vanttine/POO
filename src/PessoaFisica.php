@@ -7,31 +7,58 @@ namespace Vantine\CursoPooPhp;
 class PessoaFisica
 {
     // aqui ficarao as propriedades e metodos
-    private string $name;
+    
+    const OBJECT_TYPE = 'Ser humano';
+
+    // objetos com - sao privados
+    // objetos com + sao publicos
+
+    private static string $name = '';
     private string $email;
     private string $phone;
     private string $cpf;
     private int $age;
 
-    public function setName(string $name): void
+    public function __construct(
+
+          // Nao pode conter "static" no parametro.
+        string  $name,  
+        string  $email,
+        string  $phone,
+        string  $cpf,
+        int     $age
+
+    )
+
     {
-        $this->name = $name;
-    }
-    public function setEmail(string $email): void
-    {
+
+//        $this->name = $name;
+
+        // Por ser estatico (linha 16, aqui eu preciso "Setar" o self::)
+        self::$name = $name;
+
         $this->email = $email;
-    }
-    public function setPhone(string $phone): void
-    {
+
         $this->phone = $phone;
-    }
-    public function setCpf(string $cpf): void
-    {
+
         $this->cpf = $cpf;
-    }
-    public function setAge(int $age): void
-    {
+
         $this->age = $age;
+
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this ->email = $email;
+
+        return $this;
+    }
+
+    public static function getInformation(string $name): string
+    {
+        self::$name = $name;
+        return self::$name . " - " . self::OBJECT_TYPE;
+      
     }
 }
 
